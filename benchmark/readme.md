@@ -18,6 +18,8 @@ All source files to be tested for benchmarking are available on the code/ direct
 1. Create a new directory inside the codes/ directory and add your files inside
 2. Add your folder name to target.js in this directory.
 
+**PLEASE NOTE THAT EACH CODE FOLDER WILL NEED TO PROVIDE A HPP AND CPP FILE.**
+
 **To build all files at once please run:**</br></br>
 `npm run build`
 
