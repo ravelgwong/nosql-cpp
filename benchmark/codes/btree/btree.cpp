@@ -5,6 +5,6 @@ using std::endl;
 
 int main()
 {
-   cout << "Btree" << endl;
+   cout << "Btree " << endl;
    return 0;
 }
