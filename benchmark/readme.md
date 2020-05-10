@@ -28,4 +28,6 @@ To benchmark the all files, please build all files and run this command:</br></b
 `npm run benchmark`
 </br></br>This will result in a new file ./result.md in the directory
 
-
+#### Generating Random Data
+To generate random data please use:</br></br>
+`npm run generate`

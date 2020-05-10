@@ -16,10 +16,11 @@ int main()
     HashTable<Customer> customerTable;
     HashTable<Order> orderTable;
     ifstream inFile;
+
     inFile.open("data.json");
     if (!inFile)
     {
-        cerr << "Unable to open file datafile.txt";
+        cerr << "Unable to open file";
         exit(1); // call system to stop
     }
     char x;
