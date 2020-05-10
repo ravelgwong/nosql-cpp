@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 const target = require("./target");
 
 customers = [];
-for (let i = 0; i < 10000; i++) {
+for (let i = 0; i < 100000; i++) {
   customers.push({
     money: faker.commerce.price(),
     firstname: faker.name.firstName(),
@@ -14,7 +14,7 @@ for (let i = 0; i < 10000; i++) {
 }
 
 orders = [];
-for (let i = 0; i < 10000; i++) {
+for (let i = 0; i < 100000; i++) {
   orders.push({
     email: customers[faker.random.number(customers.length - 1)].email,
     price: faker.commerce.price(),
