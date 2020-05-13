@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <iostream>
+#include <fstream>
 #include "bTree.hpp"
 #include "json.hpp"
 #include "model.hpp"
