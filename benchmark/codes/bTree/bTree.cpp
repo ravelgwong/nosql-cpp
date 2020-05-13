@@ -1,9 +1,18 @@
 #include <stdio.h>
 #include <iostream>
-<<<<<<< HEAD
 #include "bTree.hpp"
 #include "json.hpp"
-int main() {
+#include "model.hpp"
+
+using std::cerr;
+using std::cout;
+using std::ifstream;
+using json = nlohmann::json;
+using std::endl;
+using std::strtod;
+
+int main()
+{
     Btree customerTree(100000);
     Btree orderTree(100000);
     ifstream inFile;
@@ -42,31 +51,6 @@ int main() {
     }
 
     return 0;
-    
-  
-    return 0; 
+
+    return 0;
 }
-=======
-#include <header.h>
-int main() {
-    Btree t(6);
-    t.insert(10); 
-    t.insert(20); 
-    t.insert(5); 
-    t.insert(6); 
-    t.insert(12); 
-    t.insert(30); 
-    t.insert(7); 
-    t.insert(18); 
-    t.insert(13);
-    t.insert(4);
-    t.insert(1);
-    t.insert(21);
-    t.insert(17);
-    t.insert(14);
-    t.insert(19);
-    
-  
-    return 0; 
-}
->>>>>>> 754803d0932e503805a0c7e45ec3ede392a4416c
