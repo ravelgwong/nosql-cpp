@@ -1,7 +1,47 @@
+#include <stdio.h>
 #include <iostream>
+#include "bTree.hpp"
+#include "json.hpp"
+int main() {
+    Btree customerTree(100000);
+    Btree orderTree(100000);
+    ifstream inFile;
 
-int main()
-{
-    std::cout << "Btree";
+    inFile.open("data.json");
+    if (!inFile)
+    {
+        cerr << "Unable to open file";
+        exit(1); // call system to stop
+    }
+    char x;
+    string result;
+    while (inFile >> x)
+    {
+        result += x;
+    }
+    auto jsonData = json::parse(result);
+    for (int i{0}; i < jsonData["customers"].size(); i++)
+    {
+        Customer c = Customer(
+            jsonData["customers"][i]["firstname"],
+            jsonData["customers"][i]["lastname"],
+            jsonData["customers"][i]["email"],
+            jsonData["customers"][i]["money"]);
+        customerTree.insert(c);
+    }
+    for (int i{0}; i < jsonData["customers"].size(); i++)
+    {
+        Order c = Order(
+            jsonData["orders"][i]["email"],
+            jsonData["orders"][i]["price"],
+            new string[2]{
+                jsonData["orders"][i]["food"][0], jsonData["orders"][i]["food"][1]},
+            jsonData["orders"][i]["status"]);
+        orderTree.insert(c);
+    }
+
     return 0;
+    
+  
+    return 0; 
 }
