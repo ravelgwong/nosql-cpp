@@ -8,7 +8,7 @@ programNames.forEach((element) => {
   exec(
     "cd codes/" +
       element +
-      " && g++ -std=c++14 *.cpp *.hpp -o " +
+      " && g++ -std=c++17 *.cpp *.hpp -o " +
       element +
       " && cd ../..",
     (error, stdout, stderr) => {

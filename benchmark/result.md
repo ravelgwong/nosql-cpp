@@ -1,5 +1,5 @@
-| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
-|:---|---:|---:|---:|---:|
-| `codes/bTree/bTree` | 5.3 ± 17.9 | 0.0 | 71.0 | 1.01 ± 4.83 |
-| `codes/hashTable/hashTable` | 24462.7 ± 390.3 | 24173.2 | 24906.6 | 4659.60 ± 15766.30 |
-| `codes/lsmTree/lsmTree` | 5.2 ± 17.8 | 0.0 | 75.8 | 1.00 |
+| Command                              |      Mean [ms] | Min [ms] | Max [ms] |         Relative |
+| :----------------------------------- | -------------: | -------: | -------: | ---------------: |
+| `codes/bTree/bTree BUILD FAILED`     |      2.3 ± 0.7 |      1.7 |      5.1 |      1.20 ± 0.37 |
+| `codes/hashTable/hashTable`          | 9196.6 ± 162.1 |   9009.8 |   9300.7 | 4796.34 ± 256.59 |
+| `codes/lsmTree/lsmTree BUILD FAILED` |      1.9 ± 0.1 |      1.7 |      2.6 |             1.00 |
