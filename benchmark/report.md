@@ -48,7 +48,7 @@ to install all required npm depedencies.
 
 To automatically build all of the available codes, we can run this command:
 
-`&& npm run build`
+`npm run build`
 
 The script will change directory to each of the codes and will use gcc to build all files with c++17 standard.
 
