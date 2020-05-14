@@ -22,9 +22,9 @@ Up to this point of time, we mainly do the following things:
 
 **The system is developed under unix based system , and command listed below may not run under Windows.**
 
-_As development under windows is not possible, please use the online linux development environtment on https://goor.me/1wDxJ_
+_As development under windows is not possible, please use the online linux development environment on https://goor.me/1wDxJ_
 
-### NodeJs build system
+### NodeJS build system
 
 Currently to test the speed and efficiency of the data structure nodejs is used to automate the whole process including the building, generation of random data and benchmarking.
 
@@ -50,7 +50,7 @@ To automatically build all of the available codes, we can run this command:
 
 `&& npm run build`
 
-The script will change directory to each of the codes and will use gcc to build all files with c++14 standard.
+The script will change directory to each of the codes and will use gcc to build all files with c++17 standard.
 
 #### Generate the random data
 
@@ -71,30 +71,34 @@ In order to benchmark, please make sure you have already build for the latest ch
 There are 3 data structure that is going to be tested with this system, which is:
 
 - BTree
-- LVM Tree
+- LSM Tree
 - Hash Table
 
 #### B Tree
+
 A B-Tree is a variation of the binary search tree that allows nodes to have more than two children, it is a self balancing data structure where all the children are on the same level. It maintains sorted data sand allows insertions, deletions and searches.
 Some advantages of using B-Trees include sorted keys for traversing, balances the index through a recursive algorithm, it does this through the movement and splitting of elements. However, B-Trees are also quite inefficient since deleting and inserting elements involves lots of movement between the key/values.
 
 #### LSM Tree
 
-An LSM tree also known as a log structured merge tree is a data structure composed of two or more tree like structures that is used for large volume log data, data that lists changes within a database, LSM trees store this data in key/value pairs like other data structures. 
+An LSM tree also known as a log structured merge tree is a data structure composed of two or more tree like structures that is used for large volume log data, data that lists changes within a database, LSM trees store this data in key/value pairs like other data structures.
 Some advantages of using an LSM tree over other data structures are its higher insert rates and better compression. However, data compaction which is the reduction of data elements, one good example is how we shorten our texts in every day life using acroyms, interferes with reads and writes.
 
 #### Hash Table
-A hash table is a data structure which stores data in an associative manner. In a hash table, the data is stored in an array format, where each data value has its own unique index value. The data inside a hash table is stored in key value pairs. It uses a technique called hashing to generate the indexes where these key value pairs are then stored. 
+
+A hash table is a data structure which stores data in an associative manner. In a hash table, the data is stored in an array format, where each data value has its own unique index value. The data inside a hash table is stored in key value pairs. It uses a technique called hashing to generate the indexes where these key value pairs are then stored.
 An advantage of using a Hash Table is that they are efficient for inserting and searching data. However, when running into collisions they become quite inefficient.
 
 ## Result
 
 There are 3 data structure to be tested:
+
 1. Btree (Build Failed)
 2. LSM Tree (Build Failed)
 3. Hash Table (Build Passing)
 
 The test itself currently consisted of:
+
 1. Insertion test (Implemented)
 2. Search/get test (not Implemented)
 
@@ -103,5 +107,3 @@ The test itself currently consisted of:
 | `codes/bTree/bTree BUILD FAILED`     |      2.3 ± 0.7 |      1.7 |      5.1 |      1.20 ± 0.37 |
 | `codes/hashTable/hashTable`          | 9196.6 ± 162.1 |   9009.8 |   9300.7 | 4796.34 ± 256.59 |
 | `codes/lsmTree/lsmTree BUILD FAILED` |      1.9 ± 0.1 |      1.7 |      2.6 |             1.00 |
-
-
