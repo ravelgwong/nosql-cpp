@@ -3,7 +3,7 @@
 Group Member:
 
 1. Ravel Tanjaya 2301890320
-2. Vincentius Gabriel
+2. Vincentius Gabriel 2301894804
 
 ## Introduction
 
@@ -78,15 +78,19 @@ There are 3 data structure that is going to be tested with this system, which is
 A B-Tree is a variation of the binary search tree that allows nodes to have more than two children, it is a self balancing data structure where all the children are on the same level. It maintains sorted data and allows insertions, deletions and searches.
 Some advantages of using B-Trees include sorted keys for traversing, balances the index through a recursive algorithm, it does this through the movement and splitting of elements. However, B-Trees are also quite inefficient since deleting and inserting elements involves lots of movement between the key/values.
 
-#### LVM Tree
+#### LSM Tree
 
-To be added
+An LSM tree also known as a log structured merge tree is a data structure composed of two or more tree like structures that is used for large volume log data, data that lists changes within a database, LSM trees store this data in key/value pairs like other data structures. 
+Some advantages of using an LSM tree over other data structures are its higher insert rates and better compression. However, data compaction which is the reduction of data elements, one good example is how we shorten our texts in every day life using acroyms, interferes with reads and writes.
 
 #### Hash Table
-A hash table is a data structure which stores data in an associative manner. In a hash table, the data is stored in an array format, where each data value has its own unique index value. The data inside a hash table is stored in key value pairs. It uses a technique called hashing to generate the indexes where these key value pairs are then stored. An advantage of using a Hash Table is that they are efficient for inserting and searching data. However, when running into collisions they become quite inefficient.
+A hash table is a data structure which stores data in an associative manner. In a hash table, the data is stored in an array format, where each data value has its own unique index value. The data inside a hash table is stored in key value pairs. It uses a technique called hashing to generate the indexes where these key value pairs are then stored. 
+An advantage of using a Hash Table is that they are efficient for inserting and searching data. However, when running into collisions they become quite inefficient.
 
 ## Result
-
-To Be added
+B-Tree time result:
+5.3 ± 17.9
+HashTable time result:
+24462.7 ± 390.3 in millseconds
 
 ======
