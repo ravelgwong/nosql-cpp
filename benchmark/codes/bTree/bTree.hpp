@@ -1,6 +1,6 @@
 #include <iostream> 
 using namespace std; 
-
+template <class E>
 class Node{
    int *keys; // array of keys
    int m;     //order of tree
@@ -41,25 +41,25 @@ public:
        }
        return C[i]->search(k);
    }
-   void insertNonFull(int k){
+   void insertNonFull(E data){
        int i = n-1; 
        if (leaf == true) { 
 \
-        while (i >= 0 && keys[i] > k) { 
+        while (i >= 0 && keys[i] > data) { 
             keys[i+1] = keys[i]; 
             i--; 
         } 
     } 
     else { 
-        while (i >= 0 && keys[i] > k) 
+        while (i >= 0 && keys[i] > data) 
             i--; 
         if (C[i+1]->n == 2*m-1) { 
             splitChild(i+1, C[i+1]); 
-            if (keys[i+1] < k) {
+            if (keys[i+1] < data) {
                 i++; 
             }
         } 
-        C[i+1]->insertNonFull(k); 
+        C[i+1]->insertNonFull(data); 
     } 
    }
    void splitChild(int i, Node *y) { 
@@ -89,7 +89,7 @@ public:
 } 
 friend class Btree;
 };
-
+template <class D>
 class Btree{
     Node *root;
     int m;
@@ -98,10 +98,10 @@ public:
         root = NULL;
         m = _m;
     }
-    void insert(int k){
+    void insert(D data){
         if (root == NULL) { 
             root = new Node(m, true); 
-            root->keys[0] = k;  
+            root->keys[0] = data;  
             root->n = 1;   
             
         
@@ -112,13 +112,13 @@ public:
             s->C[0] = root;  
             s->splitChild(0, root); 
             int i = 0; 
-            if (s->keys[0] < k) 
+            if (s->keys[0] < data) 
                 i++; 
-            s->C[i]->insertNonFull(k); 
+            s->C[i]->insertNonFull(data); 
             root = s; 
         } 
         else{
-            root->insertNonFull(k); 
+            root->insertNonFull(data); 
     } 
     }
     }

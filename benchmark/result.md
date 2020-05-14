@@ -1,5 +1,5 @@
 | Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
 |:---|---:|---:|---:|---:|
-| `codes/bTree/bTree` | 2.1 ± 0.1 | 1.9 | 2.7 | 1.00 |
-| `codes/hashTable/hashTable` | 8746.1 ± 511.9 | 8361.3 | 9327.0 | 4236.81 ± 339.45 |
-| `codes/lsmTree/lsmTree` | 2.2 ± 0.3 | 1.8 | 3.8 | 1.08 ± 0.14 |
+| `codes/bTree/bTree` | 5.3 ± 17.9 | 0.0 | 71.0 | 1.01 ± 4.83 |
+| `codes/hashTable/hashTable` | 24462.7 ± 390.3 | 24173.2 | 24906.6 | 4659.60 ± 15766.30 |
+| `codes/lsmTree/lsmTree` | 5.2 ± 17.8 | 0.0 | 75.8 | 1.00 |
