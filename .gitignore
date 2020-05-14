@@ -1,1 +1,6 @@
 node_modules/
+*.txt
+*.mk
+*.workspace
+.codelite/
+Debug/

@@ -1,10 +1,20 @@
-#include <stdio.h>
 #include <iostream>
+#include <fstream>
 #include "bTree.hpp"
 #include "json.hpp"
-int main() {
-    Btree<Customer> customerTree(100000);
-    Btree<Order> orderTree(100000);
+#include "model.hpp"
+
+using std::cerr;
+using std::cout;
+using std::ifstream;
+using json = nlohmann::json;
+using std::endl;
+using std::strtod;
+
+int main()
+{
+    Btree customerTree(100000);
+    Btree orderTree(100000);
     ifstream inFile;
 
     inFile.open("data.json");
@@ -40,7 +50,7 @@ int main() {
         orderTree.insert(c);
     }
 
-    
-  
-    return 0; 
+    return 0;
+
+    return 0;
 }
