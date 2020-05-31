@@ -17,6 +17,12 @@ public:
         return this->email;
     }
     Customer() {}
+
+    bool operator==(const Customer &o) const
+    {
+        return firstName == o.firstName && lastName == o.lastName &&
+               email == o.email && money == o.money;
+    }
 };
 
 class Order
@@ -35,5 +41,9 @@ public:
     string getIdentifier()
     {
         return this->email;
+    }
+    bool operator==(const Order &o) const
+    {
+        return email == o.email && price == o.price && status == o.status;
     }
 };
