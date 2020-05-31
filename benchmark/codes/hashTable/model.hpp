@@ -4,30 +4,33 @@ using std::string;
 
 class Customer
 {
-private:
+public:
     string firstName;
     string lastName;
     string email;
     string money;
 
-public:
     Customer(string first, string last, string email, string money) : firstName(first), lastName(last), email(email), money(money) {}
     string getIdentifier()
     {
         return this->email;
     }
     Customer() {}
+
+    bool operator==(const Customer &o) const
+    {
+        return firstName == o.firstName && lastName == o.lastName;
+    }
 };
 
 class Order
 {
-private:
+public:
     string email;
     string price;
     string *order;
     string status;
 
-public:
     Order()
     {
     }
@@ -35,5 +38,9 @@ public:
     string getIdentifier()
     {
         return this->email;
+    }
+    bool operator==(const Order &o) const
+    {
+        return email == o.email;
     }
 };
