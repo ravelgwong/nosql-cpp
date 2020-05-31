@@ -74,7 +74,6 @@ int main()
             jsonData["customers"][i]["money"]);
         customerTable.insert(c);
     }
-    cout << customerTable.size() << endl;
     spp::sparse_hash_set<Order> orderTable;
     for (int i{0}; i < jsonData["customers"].size(); i++)
     {
@@ -86,7 +85,6 @@ int main()
             jsonData["orders"][i]["status"]);
         orderTable.insert(c);
     }
-    cout << orderTable.size() << endl;
     for (int i{0}; i < jsonData["customers"].size(); i++)
     {
         Customer c = Customer(
@@ -96,7 +94,6 @@ int main()
             jsonData["customers"][i]["money"]);
         customerTable.erase(c);
     }
-    cout << customerTable.size() << endl;
     for (int i{0}; i < jsonData["customers"].size(); i++)
     {
         Order c = Order(
@@ -107,6 +104,5 @@ int main()
             jsonData["orders"][i]["status"]);
         orderTable.erase(c);
     }
-    cout << orderTable.size() << endl;
     return 0;
 }
