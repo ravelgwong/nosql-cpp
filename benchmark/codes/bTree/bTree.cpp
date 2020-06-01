@@ -3,7 +3,7 @@
 #include "bTree.hpp"
 #include "json.hpp"
 #include "model.hpp"
-
+#include "map.hpp"
 using std::cerr;
 using std::cout;
 using std::ifstream;
@@ -13,10 +13,11 @@ using std::strtod;
 
 int main()
 {
-    Btree customerTree(100000);
-    Btree orderTree(100000);
+	
+	btree::map<string,Customer> CustomerMap;
+    btree::map<string,Order> OrderMap;
     ifstream inFile;
-
+	
     inFile.open("data.json");
     if (!inFile)
     {
@@ -37,7 +38,9 @@ int main()
             jsonData["customers"][i]["lastname"],
             jsonData["customers"][i]["email"],
             jsonData["customers"][i]["money"]);
-        customerTree.insert(c);
+		CustomerMap.insert ( std::pair<string,Customer>(c.getIdentifier(),c) );
+		
+        
     }
     for (int i{0}; i < jsonData["customers"].size(); i++)
     {
@@ -47,7 +50,7 @@ int main()
             new string[2]{
                 jsonData["orders"][i]["food"][0], jsonData["orders"][i]["food"][1]},
             jsonData["orders"][i]["status"]);
-        orderTree.insert(c);
+        OrderMap.insert ( std::pair<string,Order>(c.getIdentifier(),c) );
     }
 
     return 0;
