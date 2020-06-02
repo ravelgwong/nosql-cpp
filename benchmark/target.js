@@ -1,2 +1,2 @@
-name = ["bTree", "hashTable", "lsmTree"];
+name = ["bloom_filter", "hashTable", "lsmTree"];
 exports.name = name;
