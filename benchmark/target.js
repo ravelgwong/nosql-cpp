@@ -1,2 +1,2 @@
-name = ["bTree", "hashTable", "lsmTree"];
-exports.name = name;
+name = ['hashTable']
+exports.name = name
