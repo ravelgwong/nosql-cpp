@@ -1,2 +1,2 @@
-name = ['bTree', 'hashTable']
+name = ['hashTable']
 exports.name = name
