@@ -34,13 +34,11 @@ We've also refined how the how the time benchmark run.
 There are 2 data structure that is going to be tested with this system, which is:
 
 - Hash Table
+- {ADDNAME}
 
 In this version we removed btree and lsmtree as we have trouble to make it work.
 
-#### Hash Table
-
-A hash table is a data structure which stores data in an associative manner. In a hash table, the data is stored in an array format, where each data value has its own unique index value. The data inside a hash table is stored in key value pairs. It uses a technique called hashing to generate the indexes where these key value pairs are then stored.
-An advantage of using a Hash Table is that they are efficient for inserting and searching data. However, when running into collisions they become quite inefficient.
+#### {ADDNAME}
 
 ## Result
 
@@ -53,22 +51,50 @@ _We only consider cross-platform gui for this app_
 
 - WxWidgets
 - Qt
-- Nana
 
 After doing some research, we found out the following:
 
 ### Wxwidgets
 
-A very mature gui framework, cross platform.
+A very mature gui framework, cross platform with a lot of bindings available.
+
+Pro:
+
+- Mature
+- Native look and feel
+- Fully free and open source
+
+Cons:
+
+- Uses gtk on x11 which will cause linux distro with non gtk+ desktop to look weird.
+- Poor form designer
+- Hard to learn
 
 ### QT
 
-### Nana
+QT is a cross platform framework to build software with c++.
 
-Finally after some consideration we have choosen to use Qt, because:
+Pro:
 
 - Cross platform (Desktop,mobile, and embedded)
 - Free to use for open source projects
 - bundled with qt creator (dedicated ide)
 - Huge community
 - great documentations
+- Have a commercial version which is the same with open source, which means the software is commercial grade
+
+Cons:
+
+- Only free for open source projects
+- quite pricy for commercial project
+
+### Consideration
+
+There are several consideration that we take into account before choosing the gui framework:
+
+- QT is easier to learn
+- Even though qt is expensive it's free for open source application (which we are)
+- Wxwidget is harder to learn (especially considering the amount of time we had)
+- It's easier to create gui with qt's ui designer
+
+With this consideration, we concluded that we'll be using qt framework for the gui of the application
