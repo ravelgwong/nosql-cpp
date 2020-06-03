@@ -20,9 +20,12 @@ Up to this point of time, we mainly do the following things:
 - Random Data generation based on faker.js.
 - 3 data structure that is going to be tested with random generated data (Not all data structure have been implemented).
 
+For our current progress of development going into our second report, we have made a number of changes towards our project and have begun moving forward towards a final application that will answer our provided problem. First of all, we have experimented with more data structures to better suit our benchmarking testss, these vary from the B-Tree, LSM Tree, Bloom Filter and currently the Cuckoo Filter which is undergoing testing. Within our current code, the structure's implementations are being added through online libraries, this was done to reduce workload and obtain results but these will be replaced by our own implementations in the final apllication. Additionally, we have made our first steps in creating a GUI application.
+
 **The system is developed under unix based system , and command listed below may not run under Windows.**
 
 _As development under windows is not possible, please use the online linux development environment on https://goor.me/1wDxJ_
+
 
 ### NodeJS build system
 
@@ -85,19 +88,20 @@ An advantage of using a Hash Table is that they are efficient for inserting and 
 
 ## Result
 
-There are 3 data structure to be tested:
+There are 2 data structures, that are currrently being tested:
 
 1. Btree (Build Failed)
 2. LSM Tree (Build Failed)
 3. Hash Table (Build Passing)
-
+4. Cuckoo Filter(Build in Final Stages)
 The test itself currently consisted of:
 
 1. Insertion test (Implemented)
-2. Search/get test (not Implemented)
+2. Deletion test (Implemented)
 
 | Command                              |      Mean [ms] | Min [ms] | Max [ms] |         Relative |
 | :----------------------------------- | -------------: | -------: | -------: | ---------------: |
 | `codes/bTree/bTree BUILD FAILED`     |      2.3 ± 0.7 |      1.7 |      5.1 |      1.20 ± 0.37 |
 | `codes/hashTable/hashTable`          | 9196.6 ± 162.1 |   9009.8 |   9300.7 | 4796.34 ± 256.59 |
 | `codes/lsmTree/lsmTree BUILD FAILED` |      1.9 ± 0.1 |      1.7 |      2.6 |             1.00 |
+| `codes/cuckooFilter/cuckooFilter` | 24.658 ± 0.657 | 24.159 | 25.403 | 1.07 ± 0.03 |
