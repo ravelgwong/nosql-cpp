@@ -68,21 +68,15 @@ In order to benchmark, please make sure you have already build for the latest ch
 
 ### Data Structure
 
-There are 3 data structure that is going to be tested with this system, which is:
+There are 2 data structures that are going to be tested with this system, which is:
 
-- BTree
-- LSM Tree
+
+- Cuckoo Filter
 - Hash Table
 
-#### B Tree
+#### Cuckoo Filter
+A cuckoo filter is a data structure that is typically used to check whether an item of data is a part of a set. A cuckoo filter is an optimization of the bloom filter, a similar structure but one that by standard, does not implement deletion. A cuckoo filter uses a 4-way set-associative hash table based on cuckoo hashing to store the fingerprints of all items. An advantage of using a cuckoo filter data structure over other structures such as a hash table is that it has a space advantage.
 
-A B-Tree is a variation of the binary search tree that allows nodes to have more than two children, it is a self balancing data structure where all the children are on the same level. It maintains sorted data sand allows insertions, deletions and searches.
-Some advantages of using B-Trees include sorted keys for traversing, balances the index through a recursive algorithm, it does this through the movement and splitting of elements. However, B-Trees are also quite inefficient since deleting and inserting elements involves lots of movement between the key/values.
-
-#### LSM Tree
-
-An LSM tree also known as a log structured merge tree is a data structure composed of two or more tree like structures that is used for large volume log data, data that lists changes within a database, LSM trees store this data in key/value pairs like other data structures.
-Some advantages of using an LSM tree over other data structures are its higher insert rates and better compression. However, data compaction which is the reduction of data elements, one good example is how we shorten our texts in every day life using acroyms, interferes with reads and writes.
 
 #### Hash Table
 
