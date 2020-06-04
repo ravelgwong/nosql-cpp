@@ -19,9 +19,12 @@ Up to this point of time, we mainly do the following things:
 - finish benchmarking the data structure.
 - choose with gui framework to use.
 
+For our current progress of development going into our second report, we have made a number of changes towards our project and have begun moving forward towards a final application that will answer our provided problem. First of all, we have experimented with more data structures to better suit our benchmarking testss, these vary from the B-Tree, LSM Tree, Bloom Filter and currently the Cuckoo Filter which is undergoing testing. Within our current code, the structure's implementations are being added through online libraries, this was done to reduce workload and obtain results but these will be replaced by our own implementations in the final apllication. Additionally, we have made our first steps in creating a GUI application.
+
 **The system is developed under unix based system , and command listed below may not run under Windows.**
 
 _As development under windows is not possible, please use the online linux development environment on https://goor.me/1wDxJ_
+
 
 ### NodeJS build system
 
@@ -34,13 +37,18 @@ We've also refined how the how the time benchmark run.
 There are 2 data structure that is going to be tested with this system, which is:
 
 - Hash Table
-- {ADDNAME}
+- Cuckoo Filter
+
+
+#### Cuckoo Filter
+A cuckoo filter is a data structure that is typically used to check whether an item of data is a part of a set. A cuckoo filter is an optimization of the bloom filter, a similar structure but one that by standard, does not implement deletion. A cuckoo filter uses a 4-way set-associative hash table based on cuckoo hashing to store the fingerprints of all items. An advantage of using a cuckoo filter data structure over other structures such as a hash table is that it has a space advantage.
 
 In this version we removed btree and lsmtree as we have trouble to make it work.
 
-#### {ADDNAME}
 
 ## Result
+
+We are still not able to show the result of the benchmark as there is some structure benchmark that is not fully implemented
 
 ## GUI Toolkit
 
@@ -85,6 +93,7 @@ Pro:
 
 Cons:
 
+
 - Only free for open source projects
 - quite pricy for commercial project
 
@@ -98,3 +107,7 @@ There are several consideration that we take into account before choosing the gu
 - It's easier to create gui with qt's ui designer
 
 With this consideration, we concluded that we'll be using qt framework for the gui of the application
+
+## Work Distribution
+
+In this particular week, we distribute the workload with Vincent doing the creation of the data structure, and Ravel researching and doing the gui development
