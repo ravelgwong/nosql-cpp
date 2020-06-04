@@ -1,4 +1,4 @@
-# Progress Report 1 - C++ Project
+# Progress Report 2 - C++ Project
 
 Group Member:
 
@@ -15,10 +15,9 @@ All codes mentioned in this repository are available on https://github.com/ravel
 
 Up to this point of time, we mainly do the following things:
 
-- Nodejs based build system to automate the build process.
-- A hyperfine based benchmark system.
-- Random Data generation based on faker.js.
-- 3 data structure that is going to be tested with random generated data (Not all data structure have been implemented).
+- Refine the features of the build system.
+- finish benchmarking the data structure.
+- choose with gui framework to use.
 
 For our current progress of development going into our second report, we have made a number of changes towards our project and have begun moving forward towards a final application that will answer our provided problem. First of all, we have experimented with more data structures to better suit our benchmarking testss, these vary from the B-Tree, LSM Tree, Bloom Filter and currently the Cuckoo Filter which is undergoing testing. Within our current code, the structure's implementations are being added through online libraries, this was done to reduce workload and obtain results but these will be replaced by our own implementations in the final apllication. Additionally, we have made our first steps in creating a GUI application.
 
@@ -29,79 +28,86 @@ _As development under windows is not possible, please use the online linux devel
 
 ### NodeJS build system
 
-Currently to test the speed and efficiency of the data structure nodejs is used to automate the whole process including the building, generation of random data and benchmarking.
+Currently we added a memory benchmarking system, previously we only do time based benchmark, adding memory benchmark allow us to understand deeper about our data structure.
 
-In order to use these scripts please make sure you have installed the following:
-
-- NodeJs
-- npm
-- Hyperfine
-
-To use this script please first, change directory to the benchmark folder with:
-
-`cd benchmark`
-
-the use npm to install all of the required depedency.
-
-`npm install`
-
-to install all required npm depedencies.
-
-#### Automatically build all of the codes
-
-To automatically build all of the available codes, we can run this command:
-
-`npm run build`
-
-The script will change directory to each of the codes and will use gcc to build all files with c++17 standard.
-
-#### Generate the random data
-
-The random data that is generated is of JSON(Javascript object notation) these data will later be loaded by the programs and used as a sample data to measure the speed of each data structure.
-
-To generate/regenerate these random data please run:
-
-`npm run generate`
-
-#### Benchmarking
-
-In order to benchmark, please make sure you have already build for the latest changes and generate the json data,then run:
-
-`npm run benchmark`
+We've also refined how the how the time benchmark run.
 
 ### Data Structure
 
-There are 2 data structures that are going to be tested with this system, which is:
+There are 2 data structure that is going to be tested with this system, which is:
 
-
-- Cuckoo Filter
 - Hash Table
+- Cuckoo Filter
+
 
 #### Cuckoo Filter
 A cuckoo filter is a data structure that is typically used to check whether an item of data is a part of a set. A cuckoo filter is an optimization of the bloom filter, a similar structure but one that by standard, does not implement deletion. A cuckoo filter uses a 4-way set-associative hash table based on cuckoo hashing to store the fingerprints of all items. An advantage of using a cuckoo filter data structure over other structures such as a hash table is that it has a space advantage.
 
+In this version we removed btree and lsmtree as we have trouble to make it work.
 
-#### Hash Table
-
-A hash table is a data structure which stores data in an associative manner. In a hash table, the data is stored in an array format, where each data value has its own unique index value. The data inside a hash table is stored in key value pairs. It uses a technique called hashing to generate the indexes where these key value pairs are then stored.
-An advantage of using a Hash Table is that they are efficient for inserting and searching data. However, when running into collisions they become quite inefficient.
 
 ## Result
 
-There are 2 data structures, that are currrently being tested:
+We are still not able to show the result of the benchmark as there is some structure benchmark that is not fully implemented
 
-1. Btree (Build Failed)
-2. LSM Tree (Build Failed)
-3. Hash Table (Build Passing)
-4. Cuckoo Filter(Build in Final Stages)
-The test itself currently consisted of:
+## GUI Toolkit
 
-1. Insertion test (Implemented)
-2. Deletion test (Implemented)
+for this appication, we are also going to create the gui for the nosql database,
+we have taken a look at several different gui toolkit such as:
 
-| Command                              |      Mean [ms] | Min [ms] | Max [ms] |         Relative |
-| :----------------------------------- | -------------: | -------: | -------: | ---------------: |
-| `codes/bTree/bTree BUILD FAILED`     |      2.3 ± 0.7 |      1.7 |      5.1 |      1.20 ± 0.37 |
-| `codes/hashTable/hashTable`          | 9196.6 ± 162.1 |   9009.8 |   9300.7 | 4796.34 ± 256.59 |
-| `codes/lsmTree/lsmTree BUILD FAILED` |      1.9 ± 0.1 |      1.7 |      2.6 |             1.00 |
-| `codes/cuckooFilter/cuckooFilter` | 24.658 ± 0.657 | 24.159 | 25.403 | 1.07 ± 0.03 |
+_We only consider cross-platform gui for this app_
+
+- WxWidgets
+- Qt
+
+After doing some research, we found out the following:
+
+### Wxwidgets
+
+A very mature gui framework, cross platform with a lot of bindings available.
+
+Pro:
+
+- Mature
+- Native look and feel
+- Fully free and open source
+
+Cons:
+
+- Uses gtk on x11 which will cause linux distro with non gtk+ desktop to look weird.
+- Poor form designer
+- Hard to learn
+
+### QT
+
+QT is a cross platform framework to build software with c++.
+
+Pro:
+
+- Cross platform (Desktop,mobile, and embedded)
+- Free to use for open source projects
+- bundled with qt creator (dedicated ide)
+- Huge community
+- great documentations
+- Have a commercial version which is the same with open source, which means the software is commercial grade
+
+Cons:
+
+
+- Only free for open source projects
+- quite pricy for commercial project
+
+### Consideration
+
+There are several consideration that we take into account before choosing the gui framework:
+
+- QT is easier to learn
+- Even though qt is expensive it's free for open source application (which we are)
+- Wxwidget is harder to learn (especially considering the amount of time we had)
+- It's easier to create gui with qt's ui designer
+
+With this consideration, we concluded that we'll be using qt framework for the gui of the application
+
+## Work Distribution
+
+In this particular week, we distribute the workload with Vincent doing the creation of the data structure, and Ravel researching and doing the gui development
