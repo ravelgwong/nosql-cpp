@@ -16,8 +16,8 @@ int main()
 {
     	
    	size_t total_items = 1000000;
-	cuckoofilter::CuckooFilter<size_t, 12> customerFilter(total_items);
-	cuckoofilter::CuckooFilter<size_t, 12> orderFilter(total_items);
+	cuckoofilter::CuckooFilter<Customer,12,cuckoofilter::SingleTable,cuckoofilter::TwoIndependentMultiplyShift,size_t> customerFilter(total_items);
+	cuckoofilter::CuckooFilter<Order,12,cuckoofilter::SingleTable,cuckoofilter::TwoIndependentMultiplyShift,size_t> orderFilter(total_items);
     ifstream inFile;
 
     inFile.open("data.json");
@@ -40,7 +40,7 @@ int main()
             jsonData["customers"][i]["lastname"],
             jsonData["customers"][i]["email"],
             jsonData["customers"][i]["money"]);
-		customerFilter.Add(i);
+		customerFilter.Add(c);
         
     }
     for (int i{0}; i < jsonData["customers"].size(); i++)
@@ -51,7 +51,7 @@ int main()
             new string[2]{
                 jsonData["orders"][i]["food"][0], jsonData["orders"][i]["food"][1]},
             jsonData["orders"][i]["status"]);
-        orderFilter.Add(i);
+        orderFilter.Add(c);
     }
 	for (int i{0}; i < jsonData["customers"].size(); i++)
     {
@@ -60,7 +60,7 @@ int main()
             jsonData["customers"][i]["lastname"],
             jsonData["customers"][i]["email"],
             jsonData["customers"][i]["money"]);
-        customerFilter.Delete(i);
+        customerFilter.Delete(c);
     }
     for (int i{0}; i < jsonData["customers"].size(); i++)
     {
@@ -70,7 +70,7 @@ int main()
             new string[2]{
                 jsonData["orders"][i]["food"][0], jsonData["orders"][i]["food"][1]},
             jsonData["orders"][i]["status"]);
-        orderFilter.Delete(i);
+        orderFilter.Delete(c);
     }
     return 0;
 }
