@@ -1,4 +1,4 @@
 | Command | Mean [s] | Min [s] | Max [s] | Relative |
 |:---|---:|---:|---:|---:|
-| `codes/hashTable/hashTable` | 23.007 ± 0.366 | 22.695 | 23.410 | 1.00 |
-| `codes/cuckooFilter/cuckooFilter` | 24.658 ± 0.657 | 24.159 | 25.403 | 1.07 ± 0.03 |
+| `codes/hashTable/hashTable` | 27.574 ± 2.311 | 24.941 | 29.266 | 1.08 ± 0.10 |
+| `codes/hashTree/hashTree` | 25.461 ± 1.098 | 24.301 | 26.485 | 1.00 |

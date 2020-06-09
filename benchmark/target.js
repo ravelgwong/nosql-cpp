@@ -1,2 +1,2 @@
-name = ['hashTable','cuckooFilter']
+name = ['hashTable','hashTree']
 exports.name = name
