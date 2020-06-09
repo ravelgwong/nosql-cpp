@@ -16,7 +16,7 @@ int main()
 {
     	
    	size_t total_items = 1000000;
-	cuckoofilter::CuckooFilter<size_t, 12> customerFilter(total_items);
+	cuckoofilter::CuckooFilter<size_t, 2> customerFilter(total_items);
 	cuckoofilter::CuckooFilter<size_t, 12> orderFilter(total_items);
     ifstream inFile;
 
