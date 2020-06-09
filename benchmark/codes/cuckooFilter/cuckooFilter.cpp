@@ -16,8 +16,8 @@ int main()
 {
     	
    	size_t total_items = 1000000;
-	cuckoofilter::CuckooFilter<Customer,12,cuckoofilter::SingleTable,cuckoofilter::TwoIndependentMultiplyShift,size_t> customerFilter(total_items);
-	cuckoofilter::CuckooFilter<Order,12,cuckoofilter::SingleTable,cuckoofilter::TwoIndependentMultiplyShift,size_t> orderFilter(total_items);
+	cuckoofilter::CuckooFilter<Customer, 12> customerFilter(total_items);
+	cuckoofilter::CuckooFilter<Order, 12> orderFilter(total_items);
     ifstream inFile;
 
     inFile.open("data.json");
