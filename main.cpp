@@ -1,13 +1,14 @@
 #include "LinkedList.hpp"
 #include "KeyValue.hpp"
-#include "PlainData.hpp"
 #include <iostream>
 #include <string>
 
 int main() {
-	LinkedList<PlainData<float>> x;
-	x.add(KeyValue<PlainData<float>>("avc",PlainData<float>(100.321312)));
-	std::cout << x.toString() << std::endl;
-
+	LinkedList c;
+	std::cout<<c.add("ravel", "fdsa")<<std::endl;
+	std::cout << c.add("gogo", "fdsf") << std::endl;
+	std::cout << c.get("ravel") << std::endl;
+	std::cout << c.deleteKey("rx") << std::endl;
+	std::cout << c.toString() << std::endl;
 	return 0;
 }
