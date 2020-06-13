@@ -1,14 +1,20 @@
-#include "LinkedList.hpp"
-#include "KeyValue.hpp"
+#include "DBControll.hpp"
 #include <iostream>
 #include <string>
 
+
 int main() {
-	LinkedList c;
-	std::cout<<c.add("ravel", "fdsa")<<std::endl;
-	std::cout << c.add("gogo", "fdsf") << std::endl;
-	std::cout << c.get("ravel") << std::endl;
-	std::cout << c.deleteKey("rx") << std::endl;
-	std::cout << c.toString() << std::endl;
+	DBControll x;
+	x.addCollection("hello");
+	x.addDocument("hello", "index", "10");
+	x.addDocument("hello", "inde1x", "20");
+	x.addDocument("hello", "indef1x", "20");
+	x.addCollection("helli");
+	x.addDocument("helli", "index", "231");
+	x.updateDocument("hello", "index", "20");
+	x.deleteDocument("hello", "index");
+
+	std::cout << x.getCollectionString("hello") << std::endl;
+	std::cout << x.getCollectionString("helli") << std::endl;
 	return 0;
 }

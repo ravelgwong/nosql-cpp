@@ -12,16 +12,17 @@ private:
 		Node(KeyValue data, Node* next = nullptr) : data(data), next(next) {}
 	};
 	Node* head{ nullptr }, * tail{ nullptr };
+
+public:
 	bool checkExists(std::string name) {
-		if (head == nullptr) return false;
-		Node* temp = head;
+		if (this->head == nullptr) return false;
+		Node* temp = this->head;
 		while (temp != nullptr) {
 			if (temp->data.name == name) return true;
 			temp = temp->next;
 		}
 		return false;
 	}
-public:
 	bool add(std::string name,std::string value) {
 		if (checkExists(name)) return false;
 		KeyValue data(name, value);
@@ -39,10 +40,22 @@ public:
 	std::string get(std::string name) {
 		Node* temp = this->head;
 		while (temp != nullptr) {
-			if (temp->data.name == name) return temp->data.toString();
+			if (temp->data.name == name) return "{\n" 
+				+ temp->data.toString() + "\n}";
 			temp = temp->next;
 		}
 		return "";
+	}
+	bool update(std::string name,std::string value) {
+		Node* temp = this->head;
+		while (temp != nullptr) {
+			if (temp->data.name == name) {
+				temp->data.value = value;
+				return true;
+			}
+			temp = temp->next;
+		}
+		return false;
 	}
 	bool deleteKey(std::string name) {
 		Node* temp = this->head;
@@ -76,7 +89,7 @@ public:
 		return false;
 	}
 	std::string toString() {
-		Node* temp = head;
+		Node* temp = this->head;
 		std::string result{ "{\n" };
 		while (temp != nullptr) {
 			result += temp->data.toString();
@@ -86,5 +99,12 @@ public:
 		result += "}";
 		return result;
 	}
-
+	~LinkedList() {
+		Node* temp = this->head;
+		while (temp != nullptr) {
+			Node* temp2 = temp;
+			temp = temp->next;
+			delete temp2;
+		}
+	}
 };
