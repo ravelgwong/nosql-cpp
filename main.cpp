@@ -1,6 +1,6 @@
 #include "DBControll.hpp"
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
+//#define WIN32_LEAN_AND_MEAN
+//#include <Windows.h>
 #include "httplib.h"
 #include <iostream>
 #include <string>
