@@ -1,20 +1,25 @@
 #include "DBControll.hpp"
-//#define WIN32_LEAN_AND_MEAN
-//#include <Windows.h>
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
 #include "httplib.h"
 #include <iostream>
 #include <string>
 
-using namespace httplib;
-
-
 int main() {
-
+    using namespace httplib;
     Server svr;
     DBControll db;
 
     svr.Get("/", [](const Request& /*req*/, Response& res) {
-        res.set_content("Hello World!", "text/plain");
+        res.set_content("GET on :8888 to get all commands\n"
+            "PUT on :8888 with body (name:collectionName) to create a new collection\n"
+            "PUT on :8888/collection/{name} with (name:docname,value:docvalue) to create a new document\n"
+            "POST on : :8888/collection/{name} with (name:docname,value:docvalue) to create a new document\n"
+            "DELETE on :8888/collection/{name} to delete collection {name}\n"
+            "DELETE on :8888/collection/{name}/doc/{docname} to delete document {docname} on collection {name}\n"
+            "GET on :8888/collection/{name}/doc/{docname} to get document\n"
+            "GET on :8888/collection/{name} to get data in a collection as JSON\n"
+            , "text/plain");
      });
 
     // GET REQUEST - Get Collection
@@ -43,7 +48,7 @@ int main() {
             << result <<  std::endl;
         std::string resStr = "{ 'error':'Could not delete document' }";
         if (result) {
-            resStr = "{ 'result':'true' }";
+            resStr = { db.getCollectionString(collection) };
         }
         res.set_content(resStr, "text/plain");
      });
@@ -56,7 +61,7 @@ int main() {
             << result << std::endl;
         std::string resStr = "{ 'error':'Could not delete collection' }";
         if (result) {
-            resStr = "{ 'result':'true' }";
+            resStr = "{}";
         }
         res.set_content(resStr, "text/plain");
      });
