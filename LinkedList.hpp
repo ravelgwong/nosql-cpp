@@ -3,6 +3,9 @@
 #include<iostream>
 #include "KeyValue.hpp"
 
+/*
+A Single collection which contains a keyvalue class
+*/
 class LinkedList {
 private:
 	class Node {
@@ -14,6 +17,7 @@ private:
 	Node* head{ nullptr }, * tail{ nullptr };
 
 public:
+//Check if certain key exists
 	bool checkExists(std::string name) {
 		if (this->head == nullptr) return false;
 		Node* temp = this->head;
@@ -23,6 +27,7 @@ public:
 		}
 		return false;
 	}
+	//Add a new key (not overwriting)
 	bool add(std::string name,std::string value) {
 		if (checkExists(name)) return false;
 		KeyValue data(name, value);
@@ -37,6 +42,7 @@ public:
 		}
 		return true;
 	}
+	//Get a single key
 	std::string get(std::string name) {
 		Node* temp = this->head;
 		while (temp != nullptr) {
@@ -46,6 +52,7 @@ public:
 		}
 		return "";
 	}
+	//Update a new key
 	bool update(std::string name,std::string value) {
 		Node* temp = this->head;
 		while (temp != nullptr) {
@@ -57,6 +64,7 @@ public:
 		}
 		return false;
 	}
+	//Delete a key inside the collection
 	bool deleteKey(std::string name) {
 		Node* temp = this->head;
 		Node* temp2 = this->head->next;
@@ -88,6 +96,7 @@ public:
 		}
 		return false;
 	}
+	// Return all items inside the colleciton as JSON
 	std::string toString() {
 		Node* temp = this->head;
 		std::string result{ "{\n" };
@@ -100,6 +109,7 @@ public:
 		return result;
 	}
 	~LinkedList() {
+		// Clear all memory usage on the heap
 		Node* temp = this->head;
 		while (temp != nullptr) {
 			Node* temp2 = temp;

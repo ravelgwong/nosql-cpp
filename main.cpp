@@ -24,10 +24,10 @@ int main() {
 
     // GET REQUEST - Get Collection
     svr.Get(R"(/collection/([a-zA-Z]+))", [&](const Request& req, Response& res) {
-        auto collection = req.matches[1];
+        auto collection = req.matches[1]; //get the collection name from the request URL
         std::string result{ db.getCollectionString(collection) };
         std::cout << "GET on " << collection << std::endl;
-        res.set_content(result, "text/plain");
+        res.set_content(result, "text/plain"); //return all string inside collection
      });
 
     // GET REQUEST - Get Document

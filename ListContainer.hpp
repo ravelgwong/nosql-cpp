@@ -2,6 +2,13 @@
 #include "LinkedList.hpp"
 #include <string>
 
+/*
+ LinkedList inside of hashtable 
+ Responsible to store and fetch collection
+ This class is needed as the hashtable is implemented with open addresing which means
+  one node in hashtable may have multiple collection inside,
+*/
+
 class ListContainer {
 private:
 	class Node {
@@ -13,6 +20,8 @@ private:
 	};
 	Node* head{ nullptr }, * tail{ nullptr };
 public:
+
+	// Get a collection of certain name
 	LinkedList* getCollection(std::string name) {
 		Node* temp = this->head;
 		while (temp != nullptr) {
@@ -22,6 +31,7 @@ public:
 		return nullptr;
 	}
 
+	// Add a new {name} collection
 	bool add(std::string name) {
 		if (getCollection(name)!=nullptr) return false;
 		if (this->head == nullptr && this->tail == nullptr) {
@@ -35,7 +45,7 @@ public:
 		}
 		return true;
 	}
-
+	// Delete collection with {name}
 	bool deleteCollection(std::string name) {
 		Node* temp = this->head;
 		Node* temp2 = this->head->next;
@@ -69,6 +79,7 @@ public:
 	}
 
 	~ListContainer() {
+		// Desctructor of the container clear all memory on the heap to prevent memory leak
 		Node* temp = this->head;
 		while (temp != nullptr) {
 			Node* temp2 = temp;
