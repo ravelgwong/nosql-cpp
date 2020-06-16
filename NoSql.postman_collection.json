@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "cadfa044-1446-48ec-aa10-7c7049319ee2",
+		"name": "NoSql",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all commands",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						""
+					]
+				},
+				"description": "Get all available commands of the database\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new collection",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "hello",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						""
+					]
+				},
+				"description": "Create a new collection for NoSql"
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new document",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "index",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "hello world",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/collection/{name}",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"collection",
+						"{name}"
+					]
+				},
+				"description": "create a new document in the database"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all documents from collection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/collection/{name}",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"collection",
+						"{name}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/collection/{col-name}/doc/{name}",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"collection",
+						"{col-name}",
+						"doc",
+						"{name}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a document",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "index",
+							"type": "text"
+						},
+						{
+							"key": "value",
+							"value": "hello",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:8888/collection/hello",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"collection",
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a document",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/collection/{col-name}/doc/{name}",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"collection",
+						"{col-name}",
+						"doc",
+						"{name}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a collection",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8888/collection/{name}",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"collection",
+						"{name}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
